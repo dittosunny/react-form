@@ -1,24 +1,81 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+// import FormControl from "@mui/joy/FormControl";
+// import FormLabel from "@mui/joy/FormLabel";
+// import FormHelperText from "@mui/joy/FormHelperText";
+// import Input from "@mui/joy/Input";
+// import Radio from "@mui/joy/Radio";
+// import RadioGroup from "@mui/joy/RadioGroup";
+import TextField from "@mui/material/TextField";
+import FormLabel from "@mui/material/FormLabel";
+import RadioGroup from "@mui/material/RadioGroup";
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Radio from '@mui/material/Radio';
+
+
 
 function App() {
   return (
     <div className="Container">
       <div className="form">
         <form>
-          <input type="text" name="name" placeholder="Name" />
-          <input type="text" name="email" placeholder="Email" />
-          <input type="text" name="phone" placeholder="Phone" />
-          <input type="text" name="address" placeholder="Address" />
-          <input type="text" name="city" placeholder="City" />
-          <input type="text" name="state" placeholder="State" />
-          <input type="text" name="zip" placeholder="Zip" />
-          <input type="text" name="country" placeholder="Country" />
-          <input type="text" name="password" placeholder="Password" />
-          <input type="text" name="cpassword" placeholder="Confirm Password" />
-          <input type="submit" value="Submit" />
+          <h1 className="title">Register Form</h1>
+          <div className="fields">
+            <div>
+              <TextField
+                type="text"
+                color="warning"
+                id="outlined-basic"
+                label="Username"
+                variant="outlined"
+              />
+            </div>
+            <div>
+              <TextField
+                id="outlined-password-input"
+                color="warning"
+                label="Password"
+                type="password"
+                autoComplete="current-password"
+              />
+            </div>
+            <div>
+              <TextField
+                id="outlined-password-input"
+                color="warning"
+                label="Confirm Password"
+                type="password"
+                autoComplete="current-password"
+              />
+            </div>
+            <div>
+              <FormLabel className="genderlabel" id="genderlabel">
+                Gender
+              </FormLabel>
+              <RadioGroup
+                row
+                aria-labelledby="demo-row-radio-buttons-group-label"
+                name="row-radio-buttons-group"
+              >
+                <FormControlLabel
+                  value="female"
+                  control={<Radio />}
+                  label="Female"
+                />
+                <FormControlLabel
+                  value="male"
+                  control={<Radio />}
+                  label="Male"
+                />
+                <FormControlLabel
+                  value="other"
+                  control={<Radio />}
+                  label="Other"
+                />
+              </RadioGroup>
+            </div>
+            
+          </div>
         </form>
-  
       </div>
     </div>
   );

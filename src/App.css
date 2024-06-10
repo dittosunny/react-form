@@ -43,6 +43,13 @@ form{
   margin-bottom: 10px; 
 
 }
+.loginbutton{
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin: 10px;
+  margin-right: 50px;
+}
 
 
 

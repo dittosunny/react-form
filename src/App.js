@@ -6,6 +6,8 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Radio from "@mui/material/Radio";
 import Button from "@mui/material/Button";
 import FormHelperText from '@mui/material/FormHelperText';
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
 import { useState } from "react";
 
 function App() {
@@ -83,17 +85,26 @@ function App() {
     });
   };
 
+  const [darkMode, setDarkMode] = useState(false);
+  const darkTheme = createTheme({
+    palette: {
+      mode: darkMode ? 'dark' : 'light',
+    },
+  });
+
   return (
-    
-    <div className="Container">
-      <div className="loginbutton">
-      <Button
-                variant="contained"
-                color="primary"
-                type="button"
-              >
-                Login
-      </Button>
+    <ThemeProvider theme={darkTheme}>
+    <CssBaseline />
+  <div className="Container">
+    <div className="loginbutton">
+    <Button
+              variant="contained"
+              color="primary"
+              type="button"
+              onClick={() => setDarkMode(!darkMode)}  // Toggle dark mode on button click
+            >
+              Toggle Dark Mode
+    </Button>
       </div>
       <div className="form">
         <form onSubmit={handleSubmit}>
@@ -187,6 +198,8 @@ function App() {
         </form>
       </div>
     </div>
+    </ThemeProvider>
+
   );
 }
 

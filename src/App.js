@@ -9,6 +9,7 @@ import FormHelperText from '@mui/material/FormHelperText';
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 function App() {
 
@@ -54,7 +55,8 @@ function App() {
     setErrors(errors);
     return valid;
   };
-
+   
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     let isValid = validatePasswords();
@@ -70,6 +72,7 @@ function App() {
     if (isValid) {
       console.log(formData);
       resetForm();
+      navigate('/home');
       // You can add further form submission logic here
     }
   };
@@ -101,7 +104,7 @@ function App() {
               variant="contained"
               color="primary"
               type="button"
-              onClick={() => setDarkMode(!darkMode)}  // Toggle dark mode on button click
+              onClick={() => setDarkMode(!darkMode)}  
             >
               Toggle Dark Mode
     </Button>
